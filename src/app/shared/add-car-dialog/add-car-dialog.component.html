@@ -36,6 +36,7 @@
           <div class="sm:col-span-3">
             <label for="showroomName" class="block text-sm/6 font-medium text-gray-900">Showroom Name</label>
             <select [(ngModel)]="car.showroomName" id="showroomName" class="block w-1/2 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6">
+              <option selected>Select a Showroom</option>
               <option *ngFor="let showroom of showrooms">{{showroom.name}}</option>
             </select>
           </div>

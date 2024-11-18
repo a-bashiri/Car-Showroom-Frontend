@@ -63,14 +63,14 @@ export class CarsComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if (result !== undefined) {
-
+        this.cars.data = [...this.cars.data, {...result}]
+        this.totalItems = this.totalItems+1;
       }
     });
   }
 
   fetchCars(page:any, pageSize:any,maker?: string, showroomName?: string){
     this.carService.getCars(page,pageSize,maker,showroomName).subscribe((data:any)=> {
-      console.error(data)
       this.cars.data = data.content;
       this.totalItems = data.totalElements;
     })

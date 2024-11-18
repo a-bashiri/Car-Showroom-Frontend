@@ -33,10 +33,8 @@ export class AddCarDialogComponent implements OnInit{
     this.dialogRef.close();
   }
   onSubmit(){
-    console.error(this.car)
     this.carService.createCar(this.car).subscribe((data:any)=> {
-      console.error(data)
-      this.dialogRef.close()
+      this.dialogRef.close(data)
     })
   }
 

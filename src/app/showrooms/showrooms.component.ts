@@ -97,7 +97,6 @@ export class ShowroomsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      console.error(result)
       if (result !== undefined) {
         this.showrooms.data = [...this.showrooms.data, {...result}]
         this.totalItems = this.totalItems+1;
@@ -106,7 +105,6 @@ export class ShowroomsComponent implements OnInit {
   }
   fetchShowrooms(page:any, pageSize:any, sortField: string, sortDirection: string){
     this.showroomService.getShowrooms(page,pageSize,sortField,sortDirection).subscribe((data:any)=> {
-      console.error(data)
       this.showrooms.data = data.content;
       this.totalItems = data.totalElements;
     })
@@ -132,7 +130,6 @@ export class ShowroomsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      console.error(result)
       if (result !== undefined) {
         this.showrooms.data = this.showrooms.data.filter((showroom)=>showroom.name !=result.name)
         this.totalItems = this.totalItems-1;
